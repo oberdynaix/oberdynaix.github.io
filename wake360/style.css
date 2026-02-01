@@ -1,0 +1,48 @@
+@import url('../style.css');
+
+:root {
+    --theme-primary: #ef4444;
+    /* Red */
+    --theme-secondary: #fee2e2;
+    --theme-accent: #f87171;
+    --bg-dark: #1f1212;
+    /* Dark Red tint */
+}
+
+body {
+    background-color: var(--bg-dark);
+}
+
+header.hero {
+    background: radial-gradient(circle at center, rgba(239, 68, 68, 0.15), rgba(31, 18, 18, 0));
+}
+
+header.hero h1 {
+    background: linear-gradient(to right, #ffffff, #ef4444);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-transform: uppercase;
+    letter-spacing: -2px;
+}
+
+.clock-display {
+    font-size: 6rem;
+    font-weight: 900;
+    font-family: var(--font-mono);
+    color: var(--theme-primary);
+    text-shadow: 0 0 30px rgba(239, 68, 68, 0.5);
+    margin: 2rem 0;
+}
+
+.card {
+    border-color: rgba(239, 68, 68, 0.2);
+}
+
+.card:hover {
+    border-color: var(--theme-primary);
+    box-shadow: 0 10px 30px rgba(239, 68, 68, 0.15);
+}
+
+.cta-button {
+    background: linear-gradient(135deg, #ef4444, #b91c1c);
+}

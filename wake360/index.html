@@ -1,45 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <title>Wake360 • Oberdynaix Apps</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Wake360 • A smart wake-up and focus companion to start your day with intention." />
-  <link rel="stylesheet" href="../style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wake360 | Smart Alarm & Sleep</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
 </head>
+
 <body>
-  <div class="bg-grid"></div>
-  <header class="site-header">
-    <div class="logo">OBERDYNAIX<span>.</span></div>
-    <nav class="main-nav">
-      <a href="/">Home</a>
-      <a href="/#apps">Apps</a>
+
+    <nav>
+        <div class="logo"><a href="../index.html" style="text-decoration:none; color:inherit;">OberDynaix</a> / Wake360
+        </div>
+        <div class="nav-links">
+            <a href="#features">Features</a>
+            <a href="#method">Method</a>
+            <a href="../index.html" class="back-btn">Back to Hub</a>
+        </div>
     </nav>
-  </header>
 
-  <main class="main-content">
-    <section class="section">
-      <h2>Wake360</h2>
-      <p>
-        Wake360 helps you start your mornings with structure, focus, and energy. 
-        Build simple routines that make it easier to stay consistent and aligned with your goals.
-      </p>
-      <ul class="app-highlights" style="margin-top:0.9rem;">
-        <li>Morning routines and reminders</li>
-        <li>Modern, clean interface</li>
-        <li>Designed to support your daily habits</li>
-      </ul>
+    <header class="hero">
+        <h1 class="reveal">Wake Up.<br>For Real.</h1>
+        <p class="reveal">The smart alarm clock that forces you to be awake before it shuts up. No more oversleeping.
+        </p>
 
-      <div style="margin-top:1.3rem;">
-        <a href="/" class="btn ghost small">Back to home</a>
-      </div>
+        <div class="clock-display reveal">07:00</div>
+
+        <div class="reveal" style="margin-top: 2rem;">
+            <button class="cta-button">Get Wake360</button>
+        </div>
+    </header>
+
+    <section id="features" class="apps">
+        <h2 class="section-title reveal">Heavy Sleepers Default</h2>
+        <div class="grid">
+            <div class="card reveal">
+                <h3>Wake Up Challenges</h3>
+                <p>Dismiss alarm ONLY by solving puzzles. Math, Memory, or Physical steps.</p>
+            </div>
+            <div class="card reveal">
+                <h3>Loud & Persistent</h3>
+                <p>Designed for deep sleepers. High volume and vibration options that won't give up.</p>
+            </div>
+            <div class="card reveal">
+                <h3>Smart Snooze</h3>
+                <p>Strict snooze limits. We make sure you don't fall back into the dream trap.</p>
+            </div>
+            <div class="card reveal">
+                <h3>Morning Routine</h3>
+                <p>Build consistent habits. Wake up at the same time and start your day with energy.</p>
+            </div>
+        </div>
     </section>
-  </main>
 
-  <footer class="site-footer">
-    <p>© <span id="year"></span> Oberdynaix. All rights reserved.</p>
-  </footer>
+    <section id="method"
+        style="padding: 5rem 10%; background: linear-gradient(180deg, rgba(153, 27, 27, 0.1) 0%, rgba(15, 23, 42, 1) 100%);">
+        <h2 class="section-title reveal">How It Works</h2>
+        <div style="max-width: 800px; margin: 0 auto; color: var(--text-secondary);">
+            <div class="reveal" style="margin-bottom: 2rem;">
+                <h3 style="color: var(--theme-primary);">1. The Alarm Sounds</h3>
+                <p>It starts loud and clear. Waking you up is non-negotiable.</p>
+            </div>
+            <div class="reveal" style="margin-bottom: 2rem;">
+                <h3 style="color: var(--theme-primary);">2. The Challenge Begins</h3>
+                <p>To turn it off, you must engage your brain. Solve a math problem or walk 20 steps.</p>
+            </div>
+            <div class="reveal">
+                <h3 style="color: var(--theme-primary);">3. You Are Awake</h3>
+                <p>By the time the alarm stops, your mind is active. No more accidental snoozing.</p>
+            </div>
+        </div>
+    </section>
 
-  <script src="../script.js"></script>
+    <footer>
+        <p>&copy; 2026 OberDynaix. Wake360.<br>Start Your Day Right.</p>
+    </footer>
+
+    <script src="../script.js"></script>
 </body>
+
 </html>

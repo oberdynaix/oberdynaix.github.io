@@ -1,0 +1,52 @@
+@import url('../style.css');
+
+:root {
+    --theme-primary: #8b5cf6;
+    /* Violet */
+    --theme-secondary: #e2e8f0;
+    --theme-accent: #a78bfa;
+    --bg-dark: #1e1b4b;
+    /* Indigo 950 */
+}
+
+body {
+    background-color: var(--bg-dark);
+}
+
+header.hero {
+    background: radial-gradient(circle at center, rgba(139, 92, 246, 0.2), rgba(30, 27, 75, 0));
+}
+
+header.hero h1 {
+    background: linear-gradient(to right, #ddd6fe, #8b5cf6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.grid-visual {
+    display: grid;
+    grid-template-columns: repeat(3, 60px);
+    gap: 4px;
+    margin: 2rem auto;
+    padding: 10px;
+    background: #312e81;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
+}
+
+.grid-cell {
+    width: 60px;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #e2e8f0;
+    border-radius: 4px;
+}
+
+.grid-cell:nth-child(even) {
+    background: rgba(255, 255, 255, 0.05);
+}
