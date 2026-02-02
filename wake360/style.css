@@ -13,13 +13,70 @@ body {
     background-color: var(--bg-dark);
 }
 
+/* Clear Global Hub BGs */
+body::before,
+body::after {
+    display: none;
+}
+
+/* Pulsing Alarm Background */
+body {
+    position: relative;
+    overflow-x: hidden;
+}
+
+.pulse-ring {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    border: 2px solid rgba(239, 68, 68, 0.1);
+    animation: pulseWave 4s infinite linear;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.pulse-ring:nth-child(2) {
+    animation-delay: 1s;
+    width: 500px;
+    height: 500px;
+}
+
+.pulse-ring:nth-child(3) {
+    animation-delay: 2s;
+    width: 400px;
+    height: 400px;
+}
+
+@keyframes pulseWave {
+    0% {
+        transform: translate(-50%, -50%) scale(0.5);
+        opacity: 0;
+        box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.2);
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate(-50%, -50%) scale(1.5);
+        opacity: 0;
+        box-shadow: 0 0 50px 20px rgba(239, 68, 68, 0);
+    }
+}
+
 header.hero {
-    background: radial-gradient(circle at center, rgba(239, 68, 68, 0.15), rgba(31, 18, 18, 0));
+    background: transparent;
 }
 
 header.hero h1 {
     background: linear-gradient(to right, #ffffff, #ef4444);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
     text-transform: uppercase;
     letter-spacing: -2px;
@@ -32,6 +89,19 @@ header.hero h1 {
     color: var(--theme-primary);
     text-shadow: 0 0 30px rgba(239, 68, 68, 0.5);
     margin: 2rem 0;
+    animation: urgentTick 1s infinite alternate;
+}
+
+@keyframes urgentTick {
+    from {
+        text-shadow: 0 0 30px rgba(239, 68, 68, 0.5);
+        transform: scale(1);
+    }
+
+    to {
+        text-shadow: 0 0 50px rgba(239, 68, 68, 0.8);
+        transform: scale(1.02);
+    }
 }
 
 .card {
@@ -45,4 +115,19 @@ header.hero h1 {
 
 .cta-button {
     background: linear-gradient(135deg, #ef4444, #b91c1c);
+    animation: pulseBtn 2s infinite;
+}
+
+@keyframes pulseBtn {
+    0% {
+        box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7);
+    }
+
+    70% {
+        box-shadow: 0 0 0 10px rgba(239, 68, 68, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(239, 68, 68, 0);
+    }
 }

@@ -15,14 +15,84 @@ body {
     background-color: var(--bg-dark);
 }
 
+/* Override Global Background for Inspire Me Now */
+body::before {
+    background: none;
+    /* Clear Hub Line/Grid */
+    animation: none;
+}
+
+body::after {
+    background: none;
+    animation: none;
+}
+
+/* Floating Orbs Effect */
+body {
+    background-image:
+        radial-gradient(circle at 20% 30%, rgba(202, 138, 4, 0.15) 0%, transparent 40%),
+        radial-gradient(circle at 80% 70%, rgba(245, 158, 11, 0.1) 0%, transparent 40%);
+    background-attachment: fixed;
+    position: relative;
+}
+
+/* Peaceful floating elements */
+.floating-orb {
+    position: fixed;
+    border-radius: 50%;
+    filter: blur(40px);
+    z-index: -1;
+    animation: float 20s infinite ease-in-out alternate;
+}
+
+.orb-1 {
+    width: 300px;
+    height: 300px;
+    background: rgba(202, 138, 4, 0.1);
+    top: 10%;
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.orb-2 {
+    width: 400px;
+    height: 400px;
+    background: rgba(251, 191, 36, 0.05);
+    bottom: 10%;
+    right: 10%;
+    animation-delay: -5s;
+}
+
+.orb-3 {
+    width: 200px;
+    height: 200px;
+    background: rgba(255, 255, 255, 0.03);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation-delay: -10s;
+}
+
+@keyframes float {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    100% {
+        transform: translate(30px, -30px) scale(1.1);
+    }
+}
+
+
 /* Override Hero */
 header.hero {
-    background: radial-gradient(circle at top right, rgba(202, 138, 4, 0.15), rgba(28, 25, 23, 0));
+    background: transparent;
 }
 
 header.hero h1 {
     background: linear-gradient(to right, #fef3c7, #fbbf24);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
