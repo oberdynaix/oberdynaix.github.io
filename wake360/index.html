@@ -13,9 +13,9 @@
 </head>
 
 <body>
-    <div class="pulse-ring"></div>
-    <div class="pulse-ring"></div>
-    <div class="pulse-ring"></div>
+    <div class="energy-ring er1"></div>
+    <div class="energy-ring er2"></div>
+    <div class="energy-ring er3"></div>
 
     <nav>
         <div class="logo"><a href="../index.html" style="text-decoration:none; color:inherit;"><i
@@ -95,6 +95,18 @@
     </footer>
 
     <script src="../script.js"></script>
+    <script>
+        function updateClock() {
+            const now = new Date();
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const timeString = `${hours}:${minutes}`;
+            const clockEl = document.querySelector('.clock-display');
+            if (clockEl) clockEl.textContent = timeString;
+        }
+        setInterval(updateClock, 1000);
+        updateClock();
+    </script>
 </body>
 
 </html>
