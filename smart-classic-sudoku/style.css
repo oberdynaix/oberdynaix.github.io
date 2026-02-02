@@ -5,8 +5,8 @@
     /* Violet */
     --theme-secondary: #e2e8f0;
     --theme-accent: #a78bfa;
-    --bg-dark: #1e1b4b;
-    /* Indigo 950 */
+    --bg-dark: #0f0a1e;
+    /* Deep Indigo */
 }
 
 body {
@@ -19,97 +19,155 @@ body::after {
     display: none;
 }
 
-/* Sudoku Pattern */
+/* Brain / Neural Network Background */
 body {
-    background: radial-gradient(circle at 50% 50%, rgba(139, 92, 246, 0.1), transparent 70%);
+    background: radial-gradient(circle at 50% 50%, #1e1b4b 0%, #020617 100%);
     position: relative;
     overflow-x: hidden;
 }
 
-/* Falling Numbers Effect */
-.bg-number {
+/* Connecting Nodes (Synapses) */
+.neural-net {
     position: fixed;
-    color: rgba(167, 139, 250, 0.05);
-    /* Very subtle */
-    font-family: 'Inter', sans-serif;
-    font-weight: 700;
-    pointer-events: none;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     z-index: -1;
-    animation: floatNum 20s linear infinite;
+    pointer-events: none;
+    opacity: 0.3;
+    background-image:
+        radial-gradient(circle at center, rgba(139, 92, 246, 0.5) 1px, transparent 1px),
+        radial-gradient(circle at center, rgba(139, 92, 246, 0.5) 1px, transparent 1px);
+    background-size: 60px 60px;
+    background-position: 0 0, 30px 30px;
+    mask-image: radial-gradient(circle at 50% 50%, black 40%, transparent 80%);
 }
 
-.n1 {
-    font-size: 4rem;
-    left: 10%;
-    top: -10%;
-    animation-duration: 25s;
+/* Brain Pulse Effect */
+.brain-pulse {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60vh;
+    height: 60vh;
+    background: radial-gradient(circle, rgba(139, 92, 246, 0.05), transparent 70%);
+    z-index: -2;
+    animation: thinkPulse 4s infinite ease-in-out;
 }
 
-.n2 {
-    font-size: 6rem;
-    left: 25%;
-    top: -15%;
-    animation-duration: 30s;
+@keyframes thinkPulse {
+
+    0%,
+    100% {
+        opacity: 0.3;
+        transform: translate(-50%, -50%) scale(0.9);
+    }
+
+    50% {
+        opacity: 0.6;
+        transform: translate(-50%, -50%) scale(1.1);
+    }
+}
+
+/* Floating Logic Nodes */
+.logic-node {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    background: var(--theme-accent);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--theme-primary);
+    animation: synapseFire 10s infinite linear;
+}
+
+.ln1 {
+    top: 20%;
+    left: 20%;
+    animation-duration: 8s;
+}
+
+.ln2 {
+    top: 70%;
+    left: 80%;
     animation-delay: 2s;
 }
 
-.n3 {
-    font-size: 3rem;
-    left: 70%;
-    top: -5%;
-    animation-duration: 22s;
-    animation-delay: 5s;
+.ln3 {
+    top: 40%;
+    right: 20%;
+    animation-duration: 12s;
 }
 
-.n4 {
-    font-size: 5rem;
-    left: 85%;
-    top: -20%;
-    animation-duration: 28s;
-    animation-delay: 1s;
+.ln4 {
+    bottom: 20%;
+    left: 30%;
+    animation-delay: 4s;
 }
 
-@keyframes floatNum {
+@keyframes synapseFire {
     0% {
-        transform: translateY(-20vh) rotate(0deg);
+        opacity: 0.2;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.5);
+        box-shadow: 0 0 20px var(--theme-accent);
     }
 
     100% {
-        transform: translateY(120vh) rotate(45deg);
+        opacity: 0.2;
+        transform: scale(1);
     }
 }
 
+/* Connecting Lines (Simulated via SVG in HTML usually, but here pure CSS lines) */
+.connection-line {
+    position: fixed;
+    background: linear-gradient(90deg, transparent, rgba(139, 92, 246, 0.2), transparent);
+    height: 1px;
+    width: 200px;
+    transform-origin: left center;
+    animation: flowLine 5s infinite linear;
+}
+
+.cl1 {
+    top: 30%;
+    left: 20%;
+    transform: rotate(45deg);
+}
+
+.cl2 {
+    top: 60%;
+    right: 30%;
+    transform: rotate(-30deg);
+    width: 300px;
+    animation-duration: 7s;
+}
+
+@keyframes flowLine {
+    0% {
+        opacity: 0;
+        background-position: -200px 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        background-position: 200px 0;
+    }
+}
+
+/* Typography polish */
 header.hero h1 {
     background: linear-gradient(to right, #ddd6fe, #8b5cf6);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-}
-
-.grid-visual {
-    display: grid;
-    grid-template-columns: repeat(3, 60px);
-    gap: 4px;
-    margin: 2rem auto;
-    padding: 10px;
-    background: #312e81;
-    border-radius: 8px;
-    box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
-}
-
-.grid-cell {
-    width: 60px;
-    height: 60px;
-    background: rgba(255, 255, 255, 0.1);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: #e2e8f0;
-    border-radius: 4px;
-}
-
-.grid-cell:nth-child(even) {
-    background: rgba(255, 255, 255, 0.05);
 }

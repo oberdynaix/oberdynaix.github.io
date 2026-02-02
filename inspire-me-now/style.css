@@ -7,133 +7,130 @@
     /* Light Yellow */
     --theme-accent: #f59e0b;
     /* Amber */
-    --bg-dark: #1c1917;
-    /* Warm Dark */
+    --bg-dark: #120f0a;
+    /* Very Dark Warm */
 }
 
 body {
     background-color: var(--bg-dark);
 }
 
-/* Override Global Background for Inspire Me Now */
-body::before {
-    background: none;
-    /* Clear Hub Line/Grid */
-    animation: none;
-}
-
+/* Clear Global Hub BGs */
+body::before,
 body::after {
-    background: none;
-    animation: none;
+    display: none;
 }
 
-/* Floating Orbs Effect */
+/* Divine Light Background */
 body {
-    background-image:
-        radial-gradient(circle at 20% 30%, rgba(202, 138, 4, 0.15) 0%, transparent 40%),
-        radial-gradient(circle at 80% 70%, rgba(245, 158, 11, 0.1) 0%, transparent 40%);
-    background-attachment: fixed;
+    background: radial-gradient(circle at 50% 0%, rgba(202, 138, 4, 0.15), transparent 60%);
     position: relative;
+    overflow-x: hidden;
 }
 
-/* Peaceful floating elements */
-.floating-orb {
+/* Floating Symbols (Peace, Bible, Reflection) */
+.bg-symbol {
     position: fixed;
-    border-radius: 50%;
-    filter: blur(40px);
+    color: rgba(251, 191, 36, 0.03);
+    /* Extremely subtle */
+    font-size: 15rem;
     z-index: -1;
-    animation: float 20s infinite ease-in-out alternate;
+    pointer-events: none;
+    animation: gentleFloat 15s infinite ease-in-out alternate;
 }
 
-.orb-1 {
-    width: 300px;
-    height: 300px;
-    background: rgba(202, 138, 4, 0.1);
+.sym-1 {
     top: 10%;
-    left: 10%;
-    animation-delay: 0s;
+    left: 5%;
+    transform: rotate(-10deg);
+    font-size: 20rem;
 }
 
-.orb-2 {
-    width: 400px;
-    height: 400px;
-    background: rgba(251, 191, 36, 0.05);
-    bottom: 10%;
-    right: 10%;
+.sym-2 {
+    bottom: 5%;
+    right: 5%;
+    transform: rotate(10deg);
     animation-delay: -5s;
 }
 
-.orb-3 {
-    width: 200px;
-    height: 200px;
-    background: rgba(255, 255, 255, 0.03);
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+.sym-3 {
+    top: 40%;
+    left: 80%;
+    font-size: 10rem;
+    opacity: 0.02;
     animation-delay: -10s;
 }
 
-@keyframes float {
+/* God Rays Effect */
+.ray-container {
+    position: fixed;
+    top: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 100vh;
+    z-index: -2;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.ray {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 100px;
+    height: 150%;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.03), transparent);
+    transform-origin: top center;
+    filter: blur(5px);
+}
+
+.ray:nth-child(1) {
+    transform: rotate(15deg) translateX(0);
+    height: 120%;
+}
+
+.ray:nth-child(2) {
+    transform: rotate(-15deg) translateX(0);
+    height: 130%;
+    width: 150px;
+}
+
+.ray:nth-child(3) {
+    transform: rotate(30deg) translateX(50px);
+    opacity: 0.5;
+}
+
+.ray:nth-child(4) {
+    transform: rotate(-30deg) translateX(-50px);
+    opacity: 0.5;
+}
+
+@keyframes gentleFloat {
     0% {
-        transform: translate(0, 0) scale(1);
+        transform: translateY(0) rotate(-5deg);
     }
 
     100% {
-        transform: translate(30px, -30px) scale(1.1);
+        transform: translateY(-30px) rotate(5deg);
     }
 }
 
-
-/* Override Hero */
-header.hero {
-    background: transparent;
-}
-
+/* UI Polishing */
 header.hero h1 {
     background: linear-gradient(to right, #fef3c7, #fbbf24);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 30px rgba(202, 138, 4, 0.3);
+}
+
+.card {
+    background: rgba(43, 35, 25, 0.6);
+    /* Warm dark glass */
+    border-color: rgba(202, 138, 4, 0.1);
 }
 
 .feature-icon {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-    color: var(--theme-primary);
-}
-
-.pricing-card {
-    background: rgba(41, 37, 36, 0.6);
-    border: 1px solid rgba(251, 191, 36, 0.1);
-    padding: 2rem;
-    border-radius: 16px;
-    text-align: center;
-}
-
-.pricing-card.premium {
-    border-color: var(--theme-primary);
-    box-shadow: 0 0 30px rgba(202, 138, 4, 0.1);
-}
-
-.price {
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: var(--theme-secondary);
-    margin: 1rem 0;
-}
-
-ul.benefits {
-    list-style: none;
-    text-align: left;
-    margin-top: 1.5rem;
-}
-
-ul.benefits li {
-    margin-bottom: 0.5rem;
-    color: var(--text-secondary);
-}
-
-ul.benefits li::before {
-    content: '✨';
-    margin-right: 0.5rem;
+    text-shadow: 0 0 20px rgba(202, 138, 4, 0.4);
 }
